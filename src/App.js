@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PlacesAutocomplete, {
   geocodeByAddress,
   getLatLng
@@ -13,14 +13,21 @@ function App() {
   const [price, setPrice] = useState("");
   const [totalCosts, setTotalCosts] = useState(0);
   const [distance, setDistance] = useState(0);
+
   const [startCoordinates, setStartCoordinates] = useState({
     lat: null,
     lng: null
   });
+
   const [destinationCoordinates, setDestinationCoordinates] = useState({
     lat: null,
     lng: null
   });
+
+  useEffect(() => {
+    window.scrollTo(0, 99999);
+  }, [totalCosts]);
+
   const handleSelectedStart = async value => {
     const result = await geocodeByAddress(value);
     const latLng = await getLatLng(result[0]);
@@ -63,12 +70,17 @@ function App() {
       </div>
       <div
         className="App"
-        style={{ height: `100wh`, width: `95%`, margin: `0 auto` }}
+        style={{
+          height: `100wh`,
+          width: `95%`,
+          margin: `0 auto`,
+          paddingBottom: `100px`
+        }}
       >
         <div className="row mt-5">
           <div
             className="col-lg-6 col-md-12"
-            style={{ height: `800px`, borderRight: `1px solid #666` }}
+            style={{ height: `500px`, borderRight: `1px solid #666` }}
           >
             <h1>Map</h1>
             <div className="row">
@@ -189,7 +201,7 @@ function App() {
 
               <div className="form-group">
                 <div className="row">
-                  <div className="col-md-6">
+                  <div className="col-md-6" style={{ marginBottom: `15px` }}>
                     <input
                       className="form-control"
                       type="text"
@@ -198,7 +210,7 @@ function App() {
                       onChange={e => setkmsByLt(e.target.value)}
                     />
                   </div>
-                  <div className="col-md-6">
+                  <div className="col-md-6" style={{ marginBottom: `15px` }}>
                     <input
                       className="form-control"
                       type="text"
