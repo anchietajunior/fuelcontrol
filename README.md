@@ -3,6 +3,8 @@
 This is a simple React application to calculate the fuel costs
 between two locations based on the average of three things:
 
+See a example here: [Fuel Costs at Netlify](https://fuel-costs.netlify.com/)
+
 ![First picture with DJI spark](https://i.ibb.co/2vb8bk7/Screen-Shot-2019-12-31-at-16-19-49.png)
 
 - Kms from one place to another
